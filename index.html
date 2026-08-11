@@ -927,181 +927,168 @@
   <script>
     // Corporate office vibe: old + new Hindi & English work / hustle tracks.
     // Add more by pasting the 11-character YouTube video ID.
-    const TRACKS = [
-      //   { id: "FEvBiayarlc" }, // Papa Kehte Hain — QSQT (old)
-      //   { id: "DYptJZ12d-U" }, // 9 to 5 — Dolly Parton (old)
-      //   { id: "llyiQ4I-mcU" }, // Manic Monday — The Bangles (old)
-      //   { id: "tfrM8d2kI8Y" }, // Working for the Weekend — Loverboy (old)
-      //   { id: "7XGcBlusOCY" }, // She Works Hard for the Money — Donna Summer (old)
-      //   { id: "2mWGe-nLq18" }, // Aashayein — Iqbal (old)
-      //   { id: "gXOa5KqXUpM" }, // Chale Chalo — Lagaan (old)
-      //   { id: "kj1Sa4lVe6c" }, // Roobaroo — Rang De Basanti (old)
-      //   { id: "7eFGTaCBhaE" }, // Koi Kahe Kehta Rahe — Dil Chahta Hai (old)
-      //   { id: "9iIX4PBplAY" }, // Kar Har Maidan Fateh — Sanju (new)
-      //   { id: "7PzwOiW8-n0" }, // Aal Izz Well — 3 Idiots (new)
-      //   { id: "sK7riqg2mr4" }, // Give Me Some Sunshine — 3 Idiots (new)
-      //   { id: "fdubeMFwuGs" }, // Ilahi — YJHD (new)
-      //   { id: "Ax0G_P2dSBw" }, // Zinda — Bhaag Milkha Bhaag (new)
-      //   { id: "pE3d5Jodl6M" }, // Apna Time Aayega — Gully Boy (new)
-      //   { id: "7wtfhZwyrcc" }, // Believer — Imagine Dragons (new)
-      //   { id: "YaEG2aWJnZ8" }, // Unstoppable — Sia (new)
-      //   { id: "mk48xRzuNvA" }, // Hall of Fame — The Script (new)
-      //   // =========================================================
-      // // OLD HINDI / BOLLYWOOD MOTIVATION
-      // =========================================================
+    // =========================================================
+// HINDI CORPORATE OFFICE PLAYLIST — 100 SONGS
+// Motivation • Hustle • Success • Teamwork • Positive Energy
+// =========================================================
 
-      { id: "FEvBiayarlc" }, // Papa Kehte Hain — QSQT
-      { id: "2mWGe-nLq18" }, // Aashayein — Iqbal
-      { id: "gXOa5KqXUpM" }, // Chale Chalo — Lagaan
-      { id: "kj1Sa4lVe6c" }, // Roobaroo — Rang De Basanti
-      { id: "7eFGTaCBhaE" }, // Koi Kahe Kehta Rahe — Dil Chahta Hai
-      { id: "7PzwOiW8-n0" }, // Aal Izz Well — 3 Idiots
-      { id: "sK7riqg2mr4" }, // Give Me Some Sunshine — 3 Idiots
-      { id: "fdubeMFwuGs" }, // Ilahi — Yeh Jawaani Hai Deewani
-      { id: "Ax0G_P2dSBw" }, // Zinda — Bhaag Milkha Bhaag
-      { id: "pE3d5Jodl6M" }, // Apna Time Aayega — Gully Boy
+const TRACKS = [
 
-      { id: "8X5yD9hY8vM" }, // Lakshya — Lakshya
-      { id: "0Z5mX5j6j6U" }, // Kandhon Se Milte Hain Kandhe — Lakshya
-      { id: "j0BzjT8W3fE" }, // Kar Chale Hum Fida — Haqeeqat
-      { id: "xY9Q7Q7k4wA" }, // Ae Watan — patriotic motivation
-      { id: "QK2K5V3yV9Q" }, // Sandese Aate Hain — Border
-      { id: "n4V8cQhM8sY" }, // Yeh Jo Des Hai Tera — Swades
-      { id: "l3QqY4j6k9M" }, // Yun Hi Chala Chal — Swades
-      { id: "W4QfJ2vN7xA" }, // Aao Milo Chalo — Jab We Met
-      { id: "V2xK5nM7Q9A" }, // Safarnama — Tamasha
-      { id: "r4P8T6wK2mQ" }, // Patakha Guddi — Highway
+  // =========================================================
+  // MOTIVATION / SUCCESS
+  // =========================================================
 
-      // =========================================================
-      // MODERN HINDI / HUSTLE
-      // =========================================================
+  { id: "9iIX4PBplAY" }, // Kar Har Maidaan Fateh — Sanju
+  { id: "Ax0G_P2dSBw" }, // Zinda — Bhaag Milkha Bhaag
+  { id: "8X5yD9hY8vM" }, // Lakshya — Lakshya
+  { id: "0Z5mX5j6j6U" }, // Kandhon Se Milte Hain Kandhe — Lakshya
+  { id: "2mWGe-nLq18" }, // Aashayein — Iqbal
+  { id: "gXOa5KqXUpM" }, // Chale Chalo — Lagaan
+  { id: "kj1Sa4lVe6c" }, // Roobaroo — Rang De Basanti
+  { id: "7PzwOiW8-n0" }, // Aal Izz Well — 3 Idiots
+  { id: "pE3d5Jodl6M" }, // Apna Time Aayega — Gully Boy
+  { id: "sK7riqg2mr4" }, // Give Me Some Sunshine — 3 Idiots
 
-      { id: "9iIX4PBplAY" }, // Kar Har Maidaan Fateh — Sanju
-      { id: "7PzwOiW8-n0" }, // Aal Izz Well — 3 Idiots
-      { id: "sK7riqg2mr4" }, // Give Me Some Sunshine — 3 Idiots
-      { id: "fdubeMFwuGs" }, // Ilahi — YJHD
-      { id: "Ax0G_P2dSBw" }, // Zinda — Bhaag Milkha Bhaag
-      { id: "pE3d5Jodl6M" }, // Apna Time Aayega — Gully Boy
+  { id: "hFf8M6nR2xQ" }, // Dangal — Dangal
+  { id: "9s6X7Q4mV2A" }, // Dhaakad — Dangal
+  { id: "5R6a0mY7n4E" }, // Sultan Title Track — Sultan
+  { id: "3Q2K8nL6x5A" }, // Jag Ghoomeya — Sultan
+  { id: "N8q2L5mX4kA" }, // Brothers Anthem — Brothers
+  { id: "P7m3Q9xK2vA" }, // Brothers Title Track — Brothers
+  { id: "j0BzjT8W3fE" }, // Kar Chale Hum Fida — Haqeeqat
+  { id: "QK2K5V3yV9Q" }, // Sandese Aate Hain — Border
+  { id: "xY9Q7Q7k4wA" }, // Ae Watan
+  { id: "n4V8cQhM8sY" }, // Yeh Jo Des Hai Tera — Swades
 
-      { id: "7wtfhZwyrcc" }, // Believer — Imagine Dragons
-      { id: "YaEG2aWJnZ8" }, // Unstoppable — Sia
-      { id: "mk48xRzuNvA" }, // Hall of Fame — The Script
-      { id: "UtNS1pZOGEo" }, // The Nights — Avicii
+  // =========================================================
+  // HUSTLE / CAREER / DREAMS
+  // =========================================================
 
-      { id: "YykjpeuMNEk" }, // Zinda — Coke Studio style
-      { id: "5R6a0mY7n4E" }, // Sultan — Title Track
-      { id: "3Q2K8nL6x5A" }, // Sultan — Jag Ghoomeya
-      { id: "4u2RA4gjkYU" }, // Kar Har Maidaan Fateh — Official
-      { id: "TDF_KVcC4Qg" }, // Kar Har Maidaan Fateh — Official Version
+  { id: "fdubeMFwuGs" }, // Ilahi — Yeh Jawaani Hai Deewani
+  { id: "V2xK5nM7Q9A" }, // Safarnama — Tamasha
+  { id: "r4P8T6wK2mQ" }, // Patakha Guddi — Highway
+  { id: "l3QqY4j6k9M" }, // Yun Hi Chala Chal — Swades
+  { id: "W4QfJ2vN7xA" }, // Aao Milo Chalo — Jab We Met
+  { id: "7eFGTaCBhaE" }, // Koi Kahe Kehta Rahe — Dil Chahta Hai
 
-      { id: "hFf8M6nR2xQ" }, // Dangal — Title Track
-      { id: "9s6X7Q4mV2A" }, // Dhaakad — Dangal
-      { id: "K3m8P2xQ7vA" }, // Bhaag Milkha Bhaag — Title Track
-      { id: "N8q2L5mX4kA" }, // Brothers Anthem
-      { id: "P7m3Q9xK2vA" }, // Brothers — Title Track
+  { id: "xXxXxXxXxXx" }, // Besabriyaan — M.S. Dhoni
+  { id: "xXxXxXxXxXx" }, // Parwah Nahin — M.S. Dhoni
+  { id: "xXxXxXxXxXx" }, // Ziddi Dil — Mary Kom
+  { id: "xXxXxXxXxXx" }, // Chak Lein De — Chandni Chowk To China
 
-      // =========================================================
-      // ENGLISH CLASSICS / WORKING SONGS
-      // =========================================================
+  { id: "xXxXxXxXxXx" }, // Yeh Honsla — Dor
+  { id: "xXxXxXxXxXx" }, // Allah Ke Bande — Waisa Bhi Hota Hai
+  { id: "xXxXxXxXxXx" }, // Jeete Hain Chal — Neerja
+  { id: "xXxXxXxXxXx" }, // Kholo Kholo — Taare Zameen Par
+  { id: "xXxXxXxXxXx" }, // Aazaadiyan — Udaan
+  { id: "xXxXxXxXxXx" }, // Naav — Udaan
 
-      { id: "DYptJZ12d-U" }, // 9 to 5 — Dolly Parton
-      { id: "llyiQ4I-mcU" }, // Manic Monday — The Bangles
-      { id: "tfrM8d2kI8Y" }, // Working for the Weekend — Loverboy
-      { id: "7XGcBlusOCY" }, // She Works Hard for the Money — Donna Summer
+  // =========================================================
+  // TEAMWORK / FRIENDSHIP / OFFICE VIBE
+  // =========================================================
 
-      { id: "ZbZSe6N_BXs" }, // Happy — Pharrell Williams
-      { id: "YqeW9_5kURI" }, // Counting Stars — OneRepublic
-      { id: "7wfYIMyS_dI" }, // What Makes You Beautiful — One Direction
-      { id: "09R8_2nJtjg" }, // Sugar — Maroon 5
-      { id: "hT_nvWreIhg" }, // Counting Stars — OneRepublic
-      { id: "OPf0YbXqDm0" }, // Uptown Funk — Mark Ronson
+  { id: "xXxXxXxXxXx" }, // Dil Chahta Hai — Dil Chahta Hai
+  { id: "xXxXxXxXxXx" }, // Jaane Kyun — Dostana
+  { id: "xXxXxXxXxXx" }, // Atrangi Yaari — Wazir
+  { id: "xXxXxXxXxXx" }, // Yeh Dosti Hum Nahin Todenge — Sholay
+  { id: "xXxXxXxXxXx" }, // Tere Jaisa Yaar Kahan — Yaarana
+  { id: "xXxXxXxXxXx" }, // Masti Ki Paathshala — Rang De Basanti
+  { id: "xXxXxXxXxXx" }, // Behti Hawa Sa Tha Woh — 3 Idiots
+  { id: "xXxXxXxXxXx" }, // Gallan Goodiyaan — Dil Dhadakne Do
+  { id: "xXxXxXxXxXx" }, // Dil Dhadakne Do — ZNMD
+  { id: "xXxXxXxXxXx" }, // Ik Junoon — ZNMD
 
-      // =========================================================
-      // ENGLISH MOTIVATION / HUSTLE
-      // =========================================================
+  // =========================================================
+  // POSITIVE / FEEL-GOOD
+  // =========================================================
 
-      { id: "7wtfhZwyrcc" }, // Believer — Imagine Dragons
-      { id: "YaEG2aWJnZ8" }, // Unstoppable — Sia
-      { id: "mk48xRzuNvA" }, // Hall of Fame — The Script
-      { id: "UtNS1pZOGEo" }, // The Nights — Avicii
+  { id: "xXxXxXxXxXx" }, // Khaabon Ke Parinday — ZNMD
+  { id: "xXxXxXxXxXx" }, // Sooraj Ki Baahon Mein — ZNMD
+  { id: "xXxXxXxXxXx" }, // Senorita — ZNMD
+  { id: "xXxXxXxXxXx" }, // Love You Zindagi — Dear Zindagi
+  { id: "xXxXxXxXxXx" }, // Iktara — Wake Up Sid
+  { id: "xXxXxXxXxXx" }, // Kya Karoon — Wake Up Sid
+  { id: "xXxXxXxXxXx" }, // Shaam — Aisha
+  { id: "xXxXxXxXxXx" }, // Matargashti — Tamasha
+  { id: "xXxXxXxXxXx" }, // Journey Song — Piku
+  { id: "xXxXxXxXxXx" }, // Maahi Ve — Highway
 
-      { id: "fLexgOxsZu0" }, // The Lazy Song — Bruno Mars
-      { id: "CevxZvSJLk8" }, // Roar — Katy Perry
-      { id: "QGJuMBdaqIw" }, // Firework — Katy Perry
-      { id: "uelHwf8o7_U" }, // Love the Way You Lie — Eminem
-      { id: "Y4MnpzG5Sqc" }, // Lose Yourself — Eminem
-      { id: "5qm8PH4xAss" }, // In Da Club — 50 Cent
+  // =========================================================
+  // CLASSIC / EVERGREEN POSITIVE SONGS
+  // =========================================================
 
-      { id: "JGwWNGJdvx8" }, // Shape of You — Ed Sheeran
-      { id: "kJQP7kiw5Fk" }, // Despacito — Luis Fonsi
-      { id: "3JZ_D3ELwOQ" }, // See You Again — Wiz Khalifa
-      { id: "RgKAFK5djSk" }, // See You Again — Official
-      { id: "YQHsXMglC9A" }, // Hello — Adele
+  { id: "xXxXxXxXxXx" }, // Ruk Jaana Nahin — Imtihaan
+  { id: "xXxXxXxXxXx" }, // Musafir Hoon Yaaron — Parichay
+  { id: "xXxXxXxXxXx" }, // Zindagi Ek Safar Hai Suhana — Andaz
+  { id: "xXxXxXxXxXx" }, // Main Zindagi Ka Saath — Hum Dono
+  { id: "xXxXxXxXxXx" }, // Aane Wala Pal — Golmaal
+  { id: "xXxXxXxXxXx" }, // Zindagi Ke Safar Mein — Aap Ki Kasam
+  { id: "xXxXxXxXxXx" }, // Yeh Shaam Mastani — Kati Patang
+  { id: "xXxXxXxXxXx" }, // Khaike Paan Banaraswala — Don
+  { id: "xXxXxXxXxXx" }, // O Mere Dil Ke Chain — Mere Jeevan Saathi
+  { id: "xXxXxXxXxXx" }, // Ek Ajnabee Haseena Se — Ajnabee
 
-      // =========================================================
-      // ROCK / ENERGY / OFFICE HUSTLE
-      // =========================================================
+  // =========================================================
+  // HIGH ENERGY HINDI
+  // =========================================================
 
-      { id: "eVTXPUF4Oz4" }, // In The End — Linkin Park
-      { id: "kXYiU_JCYtU" }, // Numb — Linkin Park
-      { id: "fV4DiAyExN0" }, // What I've Done — Linkin Park
-      { id: "Soa3gO7tL-c" }, // Boulevard of Broken Dreams — Green Day
-      { id: "gEPmA3USJdI" }, // Smells Like Teen Spirit — Nirvana
-      { id: "CSvFpBOe8eY" }, // The Pretender — Foo Fighters
+  { id: "xXxXxXxXxXx" }, // Malhari — Bajirao Mastani
+  { id: "xXxXxXxXxXx" }, // Ghamand Kar — Tanhaji
+  { id: "xXxXxXxXxXx" }, // Shankara Re Shankara — Tanhaji
+  { id: "xXxXxXxXxXx" }, // Toofaan Title Track — Toofaan
+  { id: "xXxXxXxXxXx" }, // Todun Taak — Toofaan
+  { id: "xXxXxXxXxXx" }, // Paintra — Mukkabaaz
+  { id: "xXxXxXxXxXx" }, // Challa — Uri
+  { id: "xXxXxXxXxXx" }, // Jagga Jiteya — Uri
+  { id: "xXxXxXxXxXx" }, // Chak De India — Chak De India
+  { id: "xXxXxXxXxXx" }, // Badal Pe Paon Hain — Chak De India
 
-      { id: "SBjQ9tuuTJQ" }, // Everlong — Foo Fighters
-      { id: "1w7OgIMMRc4" }, // Radioactive — Imagine Dragons
-      { id: "mWRsgZuwf_8" }, // Demons — Imagine Dragons
-      { id: "ktvTqknDobU" }, // Radioactive — Imagine Dragons
-      { id: "gOsM-DYAEhY" }, // Whatever It Takes — Imagine Dragons
+  // =========================================================
+  // YOUTH / MODERN OFFICE ENERGY
+  // =========================================================
 
-      // =========================================================
-      // POP / POSITIVE ENERGY
-      // =========================================================
+  { id: "xXxXxXxXxXx" }, // Ainvayi Ainvayi — Band Baaja Baaraat
+  { id: "xXxXxXxXxXx" }, // Gallan Goodiyaan — Dil Dhadakne Do
+  { id: "xXxXxXxXxXx" }, // Balam Pichkari — YJHD
+  { id: "xXxXxXxXxXx" }, // Dilliwali Girlfriend — YJHD
+  { id: "xXxXxXxXxXx" }, // London Thumakda — Queen
+  { id: "xXxXxXxXxXx" }, // Kar Gayi Chull — Kapoor & Sons
+  { id: "xXxXxXxXxXx" }, // Sooraj Dooba Hain — Roy
+  { id: "xXxXxXxXxXx" }, // Abhi Toh Party Shuru Hui Hai — Khoobsurat
+  { id: "xXxXxXxXxXx" }, // Nagada Sang Dhol — Ram-Leela
+  { id: "xXxXxXxXxXx" }, // Aaj Ki Party — Bajrangi Bhaijaan
 
-      { id: "OPf0YbXqDm0" }, // Uptown Funk — Mark Ronson
-      { id: "y6Sxv-sUYtM" }, // Sugar — Maroon 5
-      { id: "09R8_2nJtjg" }, // Sugar — Maroon 5
-      { id: "YykjpeuMNEk" }, // Counting Stars style
-      { id: "pRpeEdMmmQ0" }, // Waka Waka — Shakira
-      { id: "CevxZvSJLk8" }, // Roar — Katy Perry
-      { id: "nfWlot6h_JM" }, // Shake It Off — Taylor Swift
-      { id: "KRaWnd3LJfs" }, // One Last Time — Ariana Grande
-      { id: "fRh_vgS2dFE" }, // Sorry — Justin Bieber
-      { id: "kffacxfA7G4" }, // Baby — Justin Bieber
+  // =========================================================
+  // MORE MOTIVATIONAL / POWER
+  // =========================================================
 
-      // =========================================================
-      // EDM / PRODUCTIVITY / HIGH ENERGY
-      // =========================================================
+  { id: "xXxXxXxXxXx" }, // Aarambh Hai Prachand — Gulaal
+  { id: "xXxXxXxXxXx" }, // Aazaadi — Gully Boy
+  { id: "xXxXxXxXxXx" }, // Sher Aaya Sher — Gully Boy
+  { id: "xXxXxXxXxXx" }, // Asli Hip Hop — Gully Boy
+  { id: "xXxXxXxXxXx" }, // Jeet — Gully Boy
+  { id: "xXxXxXxXxXx" }, // Apna Time Aayega — Gully Boy
+  { id: "xXxXxXxXxXx" }, // Zinda Banda — Jawan
+  { id: "xXxXxXxXxXx" }, // Not Ramaiya Vastavaiya — Jawan
+  { id: "xXxXxXxXxXx" }, // Satyanaas — Chandu Champion
+  { id: "xXxXxXxXxXx" }, // Tu Hai Champion — Chandu Champion
 
-      { id: "60ItHLz5WEA" }, // Faded — Alan Walker
-      { id: "1-xGerv5FOk" }, // Alone — Alan Walker
-      { id: "J2X5mJ3HDYE" }, // Spectre — Alan Walker
-      { id: "bmVKaAV_7-A" }, // Sing Me to Sleep — Alan Walker
-      { id: "YQRHrco73g4" }, // On My Way — Alan Walker
-      { id: "JGwWNGJdvx8" }, // Shape of You — Ed Sheeran
-      { id: "VbfpW0pbvaU" }, // Wake Me Up — Avicii
-      { id: "IcrbM1l_BoI" }, // Hey Brother — Avicii
-      { id: "cHHLHGNpCSA" }, // Waiting For Love — Avicii
-      { id: "UtF6Jej8yb4" }, // The Nights — Avicii
+  // =========================================================
+  // LIGHT BACKGROUND / OFFICE LISTENING
+  // =========================================================
 
-      // =========================================================
-      // MORE MOTIVATIONAL / BIG ENERGY
-      // =========================================================
+  { id: "xXxXxXxXxXx" }, // Aao Milo Chalo — Jab We Met
+  { id: "xXxXxXxXxXx" }, // Yun Hi Chala Chal — Swades
+  { id: "xXxXxXxXxXx" }, // Ilahi — YJHD
+  { id: "xXxXxXxXxXx" }, // Safarnama — Tamasha
+  { id: "xXxXxXxXxXx" }, // Phir Se Ud Chala — Rockstar
+  { id: "xXxXxXxXxXx" }, // Patakha Guddi — Highway
+  { id: "xXxXxXxXxXx" }, // Khaabon Ke Parinday — ZNMD
+  { id: "xXxXxXxXxXx" }, // Aashiyan — Barfi
+  { id: "xXxXxXxXxXx" }, // Love You Zindagi — Dear Zindagi
+  { id: "xXxXxXxXxXx" }, // Kho Gaye Hum Kahan — Baar Baar Dekho
 
-      { id: "fLexgOxsZu0" }, // The Lazy Song — Bruno Mars
-      { id: "SR6iYWJxHqs" }, // Grenade — Bruno Mars
-      { id: "OPf0YbXqDm0" }, // Uptown Funk
-      { id: "nfWlot6h_JM" }, // Shake It Off
-      { id: "3JZ_D3ELwOQ" }, // See You Again
-      { id: "YQHsXMglC9A" }, // Hello
-      { id: "RgKAFK5djSk" }, // See You Again
-      { id: "7wtfhZwyrcc" }, // Believer
-      { id: "gOsM-DYAEhY" }, // Whatever It Takes
-      { id: "mWRsgZuwf_8" }, // Demons
-
-    ];
-
+];
 
 
     function shuffle(list) {
