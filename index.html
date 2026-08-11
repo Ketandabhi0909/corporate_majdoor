@@ -44,6 +44,39 @@
     "description": "Stream the Corporate Majdoor song, relaxing office ambient music, and live workplace visual player."
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Corporate Majdoor song?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Corporate Majdoor song and live music player is a curated playlist and ambient experience for 9-to-5 corporate employees, IT workers, and office hustlers needing focus and motivation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I stream Corporate Majdoor music live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can stream Corporate Majdoor song and live ambient office tracks directly on the official web app at https://corporate-majdoor-seven.vercel.app/."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicPlaylist",
+    "name": "Corporate Majdoor Song & Office Ambient Playlist",
+    "genre": "Motivation, Hindi Hustle, Office Ambient, Pop",
+    "url": "https://corporate-majdoor-seven.vercel.app/"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -474,6 +507,183 @@
         padding: 16px 18px;
       }
     }
+    .ctrl-btn.share-action-btn {
+      background: rgba(0, 242, 254, 0.15);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      color: #00f2fe;
+    }
+
+    .ctrl-btn.share-action-btn:hover {
+      background: rgba(0, 242, 254, 0.35);
+      transform: scale(1.08);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    }
+
+    .share-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .share-modal.hidden {
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .share-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+    }
+
+    .share-modal-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 460px;
+      background: #0f1c26;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 20px;
+      padding: 24px;
+      color: #fff;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 242, 254, 0.2);
+    }
+
+    .close-share-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      color: #8a9ba8;
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .close-share-btn:hover {
+      color: #fff;
+    }
+
+    .share-modal-content h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #00f2fe;
+    }
+
+    .share-modal-content p {
+      font-size: 13px;
+      color: #a0b0c0;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .share-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .share-opt {
+      padding: 12px 8px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+      color: #fff;
+    }
+
+    .share-opt:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .share-opt.wa { background: #25D366; }
+    .share-opt.tw { background: #1DA1F2; }
+    .share-opt.in { background: #0A66C2; }
+
+    .copy-box {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .copy-box label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6b7c8d;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .copy-input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .copy-input-row input {
+      flex: 1;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #e0e0e0;
+      font-size: 12px;
+    }
+
+    .copy-input-row button {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      border: none;
+      border-radius: 8px;
+      padding: 0 16px;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .copy-input-row button:hover {
+      opacity: 0.9;
+    }
+
+    .seo-content-block {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      opacity: 0.4;
+      text-align: center;
+      max-width: 650px;
+      font-size: 10px;
+      color: #7a8b99;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+
+    .seo-content-block:hover {
+      opacity: 0.95;
+    }
+
+    .seo-content-block h2 {
+      font-size: 11px;
+      margin-bottom: 2px;
+      color: #a0b0c0;
+    }
   </style>
 </head>
 
@@ -566,6 +776,50 @@
             <path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z" />
           </svg>
         </button>
+        <button id="share-btn" class="ctrl-btn share-action-btn" aria-label="Share Corporate Majdoor Song" title="Share Corporate Majdoor Song">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.70s-.04-.47-.09-.70l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.70L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section class="seo-content-block" aria-label="Corporate Majdoor Song Info">
+    <h2>Corporate Majdoor Song & Office Ambient Music Player</h2>
+    <p>
+      Stream <strong>Corporate Majdoor song</strong> (कॉर्पोरेट मजदूर), 9-to-5 office relaxing tunes, and motivational ambient visual player.
+    </p>
+  </section>
+
+  <!-- Viral Share Modal -->
+  <div id="share-modal" class="share-modal hidden">
+    <div class="share-modal-backdrop" id="share-backdrop"></div>
+    <div class="share-modal-content">
+      <button class="close-share-btn" id="close-share">&times;</button>
+      <h2>🔥 Share "Corporate Majdoor Song"</h2>
+      <p>Help make Corporate Majdoor viral! Share with your 9-to-5 corporate colleagues & social media.</p>
+      
+      <div class="share-buttons">
+        <button id="share-whatsapp" class="share-opt wa">💬 WhatsApp</button>
+        <button id="share-twitter" class="share-opt tw">🐦 Twitter / X</button>
+        <button id="share-linkedin" class="share-opt in">💼 LinkedIn</button>
+      </div>
+
+      <div class="copy-box">
+        <label>Copy Website Link</label>
+        <div class="copy-input-row">
+          <input type="text" id="share-url-input" value="https://corporate-majdoor-seven.vercel.app/" readonly />
+          <button id="copy-url-btn">Copy Link</button>
+        </div>
+      </div>
+
+      <div class="copy-box">
+        <label>Copy YouTube Description Backlink</label>
+        <div class="copy-input-row">
+          <input type="text" id="yt-desc-input" value="🎶 Corporate Majdoor Song: https://corporate-majdoor-seven.vercel.app/" readonly />
+          <button id="copy-yt-btn">Copy Text</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1226,6 +1480,73 @@
       const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
       player.seekTo(ratio * duration, true);
     });
+
+    // Share Modal & Viral Controls
+    const shareBtn = document.getElementById("share-btn");
+    const shareModal = document.getElementById("share-modal");
+    const shareBackdrop = document.getElementById("share-backdrop");
+    const closeShareBtn = document.getElementById("close-share");
+
+    const shareUrlInput = document.getElementById("share-url-input");
+    const ytDescInput = document.getElementById("yt-desc-input");
+
+    const copyUrlBtn = document.getElementById("copy-url-btn");
+    const copyYtBtn = document.getElementById("copy-yt-btn");
+
+    const shareWa = document.getElementById("share-whatsapp");
+    const shareTw = document.getElementById("share-twitter");
+    const shareIn = document.getElementById("share-linkedin");
+
+    function openShareModal() {
+      if (shareModal) shareModal.classList.remove("hidden");
+    }
+
+    function closeShareModal() {
+      if (shareModal) shareModal.classList.add("hidden");
+    }
+
+    if (shareBtn) shareBtn.addEventListener("click", openShareModal);
+    if (closeShareBtn) closeShareBtn.addEventListener("click", closeShareModal);
+    if (shareBackdrop) shareBackdrop.addEventListener("click", closeShareModal);
+
+    const shareTitle = "Corporate Majdoor Song & Office Ambient Music";
+    const shareText = "Listen to Corporate Majdoor Song 🎶 — the ultimate 9-to-5 office playlist & visual player! ";
+    const siteUrl = "https://corporate-majdoor-seven.vercel.app/";
+
+    if (shareWa) {
+      shareWa.addEventListener("click", () => {
+        const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + siteUrl)}`;
+        window.open(url, "_blank");
+      });
+    }
+
+    if (shareTw) {
+      shareTw.addEventListener("click", () => {
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(siteUrl)}&hashtags=CorporateMajdoor,CorporateMajdoorSong`;
+        window.open(url, "_blank");
+      });
+    }
+
+    if (shareIn) {
+      shareIn.addEventListener("click", () => {
+        const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(siteUrl)}`;
+        window.open(url, "_blank");
+      });
+    }
+
+    function copyToClipboard(inputEl, btnEl, originalText) {
+      if (!inputEl) return;
+      inputEl.select();
+      navigator.clipboard.writeText(inputEl.value).then(() => {
+        if (btnEl) {
+          btnEl.textContent = "Copied! ✅";
+          setTimeout(() => { btnEl.textContent = originalText; }, 2000);
+        }
+      });
+    }
+
+    if (copyUrlBtn) copyUrlBtn.addEventListener("click", () => copyToClipboard(shareUrlInput, copyUrlBtn, "Copy Link"));
+    if (copyYtBtn) copyYtBtn.addEventListener("click", () => copyToClipboard(ytDescInput, copyYtBtn, "Copy Text"));
   </script>
 </body>
 
