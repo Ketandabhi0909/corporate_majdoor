@@ -1,0 +1,4 @@
+data/online.json
+data/stats.json
+.vercel
+node_modules
