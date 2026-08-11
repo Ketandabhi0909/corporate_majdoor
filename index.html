@@ -732,14 +732,27 @@
     async function loadSlides() {
       if (!bgSliderEl) return;
       let images = [];
+      const fallbackImages = [
+        "data/bg.png",
+        "data/3d-rendering-business-meeting-room-office-building.jpg",
+        "data/3w44hh.jpg",
+        "data/Audiovisual Services and Solutions for Meeting Rooms.webp",
+        "data/How-Hybrid-Work-Is-Shaping-the-Future-of-AV-Meeting-Spaces.webp",
+        "data/Zoom-Office-4-e1691595920875.webp",
+        "data/luxury-nightclub-features-modern-decor-lighting-equipment-generated-by-ai.jpg",
+        "data/messy-boardroom-after-a-long-business-meeting-photo.jpg",
+        "data/studio-arrangement-work.jpg"
+      ];
       try {
-        const res = await fetch("slides.php?t=" + Date.now(), { cache: "no-store" });
-        const data = await res.json();
-        if (Array.isArray(data)) images = data.filter(Boolean);
+        const res = await fetch("/api/slides?t=" + Date.now(), { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) images = data.filter(Boolean);
+        }
       } catch (err) {
-        images = ["data/bg.png"];
+        images = fallbackImages;
       }
-      if (!images.length) return;
+      if (!images.length) images = fallbackImages;
 
       const key = images.join("|");
       if (key === slideListKey) return;
@@ -827,13 +840,103 @@
       return n.toLocaleString("en-IN");
     }
 
+    function getLocalStore() {
+      try {
+        const raw = localStorage.getItem("cm_stats_v2");
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      return { total_views: 0, days: {} };
+    }
+
+    function saveLocalStore(store) {
+      try {
+        localStorage.setItem("cm_stats_v2", JSON.stringify(store));
+      } catch (e) {}
+    }
+
+    function computeLocalStats() {
+      const store = getLocalStore();
+      const vid = visitorId();
+      
+      const now = new Date();
+      const today = now.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+      
+      if (!sessionStorage.getItem("cm_hit_sent")) {
+        store.total_views = (store.total_views || 0) + 1;
+        if (!store.days[today]) store.days[today] = { views: 0, users: {} };
+        store.days[today].views = (store.days[today].views || 0) + 1;
+        store.days[today].users[vid] = true;
+        saveLocalStore(store);
+      }
+
+      const d = new Date(now);
+      const dow = d.getDay() || 7;
+      d.setDate(d.getDate() - (dow - 1));
+      const weekStart = d.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+      const monthStart = today.slice(0, 8) + "01";
+      const yearStart = today.slice(0, 4) + "-01-01";
+
+      function summarizeRange(from, to) {
+        let views = 0;
+        const users = {};
+        for (const [dayKey, row] of Object.entries(store.days || {})) {
+          if (dayKey >= from && dayKey <= to) {
+            views += Number(row.views || 0);
+            for (const u of Object.keys(row.users || {})) {
+              if (row.users[u]) users[u] = true;
+            }
+          }
+        }
+        return { views, users: Math.max(1, Object.keys(users).length) };
+      }
+
+      const totalUsers = {};
+      for (const row of Object.values(store.days || {})) {
+        for (const u of Object.keys(row.users || {})) {
+          if (row.users[u]) totalUsers[u] = true;
+        }
+      }
+
+      return {
+        online: 1,
+        today: summarizeRange(today, today),
+        week: summarizeRange(weekStart, today),
+        month: summarizeRange(monthStart, today),
+        year: summarizeRange(yearStart, today),
+        total: {
+          views: store.total_views || 1,
+          users: Math.max(1, Object.keys(totalUsers).length),
+        },
+      };
+    }
+
+    function mergeStats(serverData) {
+      const local = computeLocalStats();
+      if (!serverData || typeof serverData !== "object") return local;
+
+      const mergeRow = (srv, loc) => ({
+        views: Math.max(Number(srv?.views || 0), Number(loc?.views || 0)),
+        users: Math.max(Number(srv?.users || 0), Number(loc?.users || 0)),
+      });
+
+      return {
+        online: Math.max(Number(serverData.online || 1), 1),
+        today: mergeRow(serverData.today, local.today),
+        week: mergeRow(serverData.week, local.week),
+        month: mergeRow(serverData.month, local.month),
+        year: mergeRow(serverData.year, local.year),
+        total: mergeRow(serverData.total, local.total),
+      };
+    }
+
     function renderStats(data) {
-      if (typeof data.online === "number") {
-        onlineEl.textContent = `${formatCount(data.online)} online`;
+      const merged = mergeStats(data);
+      if (typeof merged.online === "number") {
+        onlineEl.textContent = `${formatCount(merged.online)} online`;
       }
       const periods = ["today", "week", "month", "year", "total"];
       periods.forEach((key) => {
-        const row = data[key];
+        const row = merged[key];
         if (!row) return;
         const viewsEl = document.getElementById("views-" + key);
         const usersEl = document.getElementById("users-" + key);
@@ -846,21 +949,24 @@
 
     async function pingOnline(leave) {
       const hit = pendingHit && !leave;
+      renderStats(null);
       try {
-        const res = await fetch("online.php", {
+        const res = await fetch("/api/online", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ id: visitorId(), leave: !!leave, hit }),
           keepalive: true,
         });
-        const data = await res.json();
-        renderStats(data);
+        if (res.ok) {
+          const data = await res.json();
+          renderStats(data);
+        }
         if (hit) {
           sessionStorage.setItem("cm_hit_sent", "1");
           pendingHit = false;
         }
       } catch (err) {
-        onlineEl.textContent = "1 online";
+        renderStats(null);
       }
     }
 
@@ -872,7 +978,7 @@
       fd.append("id", visitorId());
       fd.append("leave", "1");
       if (navigator.sendBeacon) {
-        navigator.sendBeacon("online.php", fd);
+        navigator.sendBeacon("/api/online", fd);
       } else {
         pingOnline(true);
       }
