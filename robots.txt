@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://corporate-majdoor.vercel.app/sitemap.xml
