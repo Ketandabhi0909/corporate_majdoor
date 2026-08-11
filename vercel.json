@@ -1,11 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/online.php", "destination": "/api/online" },
-    { "source": "/slides.php", "destination": "/api/slides" }
-  ],
   "functions": {
-    "api/slides.js": {
-      "includeFiles": "data/**"
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.3"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ]
 }
