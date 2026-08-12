@@ -792,11 +792,27 @@
       margin-bottom: 2px;
       color: #a0b0c0;
     }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #00f2fe;
+      color: #000;
+      padding: 8px;
+      z-index: 10000;
+      transition: top 0.2s;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
   </style>
 </head>
 
 <body>
-  <div class="hero">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="hero">
     <div class="bg-slider" id="bg-slider">
       <div class="slide active"><img src="data/bg.png" alt="Corporate Majdoor Office Ambient Background" /></div>
     </div>
@@ -891,18 +907,27 @@
         </button>
       </div>
     </div>
-  </div>
+      </div>
+    </div>
+  </main>
 
-  <section class="seo-content-block" aria-label="Corporate Majdoor Song Info">
+  <footer class="seo-content-block" aria-label="Corporate Majdoor Song Info">
     <h2>Corporate Majdoor Song & Office Ambient Music Player</h2>
     <p>
       Stream <strong>Corporate Majdoor song</strong> (कॉर्पोरेट मजदूर), 9-to-5 office relaxing tunes, and motivational ambient visual player to enhance focus.
     </p>
     <h3>Why Listen to Corporate Majdoor?</h3>
     <p>
-      Designed for modern professionals, our curated ambient music creates the perfect environment for productivity and stress relief during your daily hustle.
+      Designed for modern professionals, our curated ambient music creates the perfect environment for productivity and stress relief during your daily hustle. Whether you are dealing with deadlines, corporate meetings, or long hours at the desk, the Corporate Majdoor song brings a sense of camaraderie and motivation. The blend of lo-fi beats, subtle office background noise, and calming melodies helps you stay in the zone.
     </p>
-  </section>
+    <h3>Boost Your 9-to-5 Productivity</h3>
+    <p>
+      Many IT workers and corporate employees struggle with maintaining focus in noisy or overly quiet environments. This ambient player provides the perfect middle ground. Enjoy seamless playback, visual relaxation with aesthetic background changes, and track your listening sessions alongside other corporate warriors worldwide. Hit play and transform your workspace today. Stay productive, stay relaxed, and keep grinding with the ultimate corporate soundtrack.
+    </p>
+    <nav aria-label="Footer Navigation" style="margin-top: 10px;">
+      <a href="/" style="color: #a0b0c0; text-decoration: none; margin: 0 5px;">Home</a>
+    </nav>
+  </footer>
 
   <!-- Viral Share Modal -->
   <div id="share-modal" class="share-modal hidden">
