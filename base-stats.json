@@ -1,0 +1,22 @@
+{
+  "total": {
+    "views": 1500,
+    "users": 800
+  },
+  "today": {
+    "views": 50,
+    "users": 30
+  },
+  "week": {
+    "views": 300,
+    "users": 150
+  },
+  "month": {
+    "views": 1200,
+    "users": 600
+  },
+  "year": {
+    "views": 1500,
+    "users": 800
+  }
+}

@@ -1,3 +1,16 @@
+const fs = require('fs');
+const path = require('path');
+
+let baseStats = null;
+try {
+  const baseStatsPath = path.join(__dirname, '..', 'base-stats.json');
+  if (fs.existsSync(baseStatsPath)) {
+    baseStats = JSON.parse(fs.readFileSync(baseStatsPath, 'utf8'));
+  }
+} catch (e) {
+  console.error("Failed to load base-stats.json", e);
+}
+
 const TIMEOUT_SEC = 40;
 const STATS_KEY = "cm:stats";
 const ONLINE_KEY = "cm:online";
@@ -171,17 +184,40 @@ module.exports = async function handler(req, res) {
     const monthStart = today.slice(0, 8) + "01";
     const yearStart = today.slice(0, 4) + "-01-01";
 
+    const todaySummary = summarize(stats, today, today);
+    const weekSummary = summarize(stats, ws, today);
+    const monthSummary = summarize(stats, monthStart, today);
+    const yearSummary = summarize(stats, yearStart, today);
+    const totalSummary = {
+      views: Number(stats.total_views || 0),
+      users: Object.keys(stats.all_users || {}).length,
+    };
+
+    if (baseStats) {
+      todaySummary.views += (baseStats.today?.views || 0);
+      todaySummary.users += (baseStats.today?.users || 0);
+      
+      weekSummary.views += (baseStats.week?.views || 0);
+      weekSummary.users += (baseStats.week?.users || 0);
+      
+      monthSummary.views += (baseStats.month?.views || 0);
+      monthSummary.users += (baseStats.month?.users || 0);
+      
+      yearSummary.views += (baseStats.year?.views || 0);
+      yearSummary.users += (baseStats.year?.users || 0);
+      
+      totalSummary.views += (baseStats.total?.views || 0);
+      totalSummary.users += (baseStats.total?.users || 0);
+    }
+
     res.status(200).json({
       online: Object.keys(online).length,
       id,
-      today: summarize(stats, today, today),
-      week: summarize(stats, ws, today),
-      month: summarize(stats, monthStart, today),
-      year: summarize(stats, yearStart, today),
-      total: {
-        views: Number(stats.total_views || 0),
-        users: Object.keys(stats.all_users || {}).length,
-      },
+      today: todaySummary,
+      week: weekSummary,
+      month: monthSummary,
+      year: yearSummary,
+      total: totalSummary,
     });
   } catch (err) {
     res.status(200).json({ online: 1, error: String(err.message || err) });
