@@ -2,6 +2,10 @@
 <html lang="hi" translate="no">
 
 <head>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9785162092378336"
+    crossorigin="anonymous"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" content="notranslate" />
@@ -615,6 +619,7 @@
         height: 34px;
       }
     }
+
     .ctrl-btn.share-action-btn {
       background: rgba(0, 242, 254, 0.15);
       border: 1px solid rgba(0, 242, 254, 0.4);
@@ -717,9 +722,17 @@
       opacity: 0.9;
     }
 
-    .share-opt.wa { background: #25D366; }
-    .share-opt.tw { background: #1DA1F2; }
-    .share-opt.in { background: #0A66C2; }
+    .share-opt.wa {
+      background: #25D366;
+    }
+
+    .share-opt.tw {
+      background: #1DA1F2;
+    }
+
+    .share-opt.in {
+      background: #0A66C2;
+    }
 
     .copy-box {
       margin-bottom: 16px;
@@ -792,6 +805,7 @@
       margin-bottom: 2px;
       color: #a0b0c0;
     }
+
     .skip-link {
       position: absolute;
       top: -40px;
@@ -804,6 +818,7 @@
       font-weight: bold;
       text-decoration: none;
     }
+
     .skip-link:focus {
       top: 0;
     }
@@ -824,6 +839,10 @@
         <span class="dot"></span>
         <span id="online-count">-- online</span>
       </div>
+      <button id="open-legal-btn"
+        style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 500; backdrop-filter: blur(4px); transition: background 0.2s;"
+        onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+        onmouseout="this.style.background='rgba(255,255,255,0.1)'">Legal & Policies</button>
     </header>
 
     <h1 class="title-wrapper">
@@ -840,22 +859,22 @@
     <div id="yt-player-mount" class="yt-mount"></div>
 
     <div class="stats-bar" id="stats-bar">
-      <div class="stat">
+      <div class="stat" style="display: none;">
         <span class="stat-value" id="views-today">0</span>
         <span class="stat-label">Today</span>
         <span class="stat-users" id="users-today">0 users</span>
       </div>
-      <div class="stat">
+      <div class="stat" style="display: none;">
         <span class="stat-value" id="views-week">0</span>
         <span class="stat-label">This week</span>
         <span class="stat-users" id="users-week">0 users</span>
       </div>
-      <div class="stat">
+      <div class="stat" style="display: none;">
         <span class="stat-value" id="views-month">0</span>
         <span class="stat-label">This month</span>
         <span class="stat-users" id="users-month">0 users</span>
       </div>
-      <div class="stat">
+      <div class="stat" style="display: none;">
         <span class="stat-value" id="views-year">0</span>
         <span class="stat-label">This year</span>
         <span class="stat-users" id="users-year">0 users</span>
@@ -867,7 +886,7 @@
       </div>
     </div>
 
-    <div class="player-card">
+    <div class="player-card" id="player-card">
       <div class="art" id="art">
         <img id="art-img" src="data/bg.png" alt="Corporate Majdoor Song Album Art" />
       </div>
@@ -900,33 +919,47 @@
             <path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z" />
           </svg>
         </button>
-        <button id="share-btn" class="ctrl-btn share-action-btn" aria-label="Share Corporate Majdoor Song" title="Share Corporate Majdoor Song">
+        <button id="share-btn" class="ctrl-btn share-action-btn" aria-label="Share Corporate Majdoor Song"
+          title="Share Corporate Majdoor Song">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.70s-.04-.47-.09-.70l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.70L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
+            <path
+              d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.70s-.04-.47-.09-.70l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.70L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z" />
           </svg>
         </button>
       </div>
     </div>
-      </div>
+    </div>
     </div>
   </main>
 
   <footer class="seo-content-block" aria-label="Corporate Majdoor Song Info">
     <h2>Corporate Majdoor Song & Office Ambient Music Player</h2>
     <p>
-      Stream <strong>Corporate Majdoor song</strong> (कॉर्पोरेट मजदूर), 9-to-5 office relaxing tunes, and motivational ambient visual player to enhance focus.
+      Stream <strong>Corporate Majdoor song</strong> (कॉर्पोरेट मजदूर), 9-to-5 office relaxing tunes, and motivational
+      ambient visual player to enhance focus.
     </p>
     <h3>Why Listen to Corporate Majdoor?</h3>
     <p>
-      Designed for modern professionals, our curated ambient music creates the perfect environment for productivity and stress relief during your daily hustle. Whether you are dealing with deadlines, corporate meetings, or long hours at the desk, the Corporate Majdoor song brings a sense of camaraderie and motivation. The blend of lo-fi beats, subtle office background noise, and calming melodies helps you stay in the zone.
+      Designed for modern professionals, our curated ambient music creates the perfect environment for productivity and
+      stress relief during your daily hustle. Whether you are dealing with deadlines, corporate meetings, or long hours
+      at the desk, the Corporate Majdoor song brings a sense of camaraderie and motivation. The blend of lo-fi beats,
+      subtle office background noise, and calming melodies helps you stay in the zone.
     </p>
     <h3>Boost Your 9-to-5 Productivity</h3>
     <p>
-      Many IT workers and corporate employees struggle with maintaining focus in noisy or overly quiet environments. This ambient player provides the perfect middle ground. Enjoy seamless playback, visual relaxation with aesthetic background changes, and track your listening sessions alongside other corporate warriors worldwide. Hit play and transform your workspace today. Stay productive, stay relaxed, and keep grinding with the ultimate corporate soundtrack.
+      Many IT workers and corporate employees struggle with maintaining focus in noisy or overly quiet environments.
+      This ambient player provides the perfect middle ground. Enjoy seamless playback, visual relaxation with aesthetic
+      background changes, and track your listening sessions alongside other corporate warriors worldwide. Hit play and
+      transform your workspace today. Stay productive, stay relaxed, and keep grinding with the ultimate corporate
+      soundtrack.
     </p>
-    <nav aria-label="Footer Navigation" style="margin-top: 10px;">
-      <a href="/" style="color: #a0b0c0; text-decoration: none; margin: 0 5px;">Home</a>
+    <nav aria-label="Footer Navigation" style="margin-top: 15px; font-size: 13px; text-align: center;">
+      <a href="#" id="open-legal-modal" style="color: #a0b0c0; text-decoration: underline; cursor: pointer;">Legal &
+        Policies</a>
     </nav>
+    <div style="margin-top: 15px; font-size: 11px; color: #7a8b99;">
+      &copy; 2026 Corporate Majdoor. All rights reserved.
+    </div>
   </footer>
 
   <!-- Viral Share Modal -->
@@ -936,7 +969,7 @@
       <button class="close-share-btn" id="close-share">&times;</button>
       <h2>🔥 Share "Corporate Majdoor Song"</h2>
       <p>Help make Corporate Majdoor viral! Share with your 9-to-5 corporate colleagues & social media.</p>
-      
+
       <div class="share-buttons">
         <button id="share-whatsapp" class="share-opt wa">💬 WhatsApp</button>
         <button id="share-twitter" class="share-opt tw">🐦 Twitter / X</button>
@@ -954,7 +987,8 @@
       <div class="copy-box">
         <label>Copy YouTube Description Backlink</label>
         <div class="copy-input-row">
-          <input type="text" id="yt-desc-input" value="🎶 Corporate Majdoor Song: https://corporate-majdoor-seven.vercel.app/" readonly />
+          <input type="text" id="yt-desc-input"
+            value="🎶 Corporate Majdoor Song: https://corporate-majdoor-seven.vercel.app/" readonly />
           <button id="copy-yt-btn">Copy Text</button>
         </div>
       </div>
@@ -966,9 +1000,9 @@
     // Corporate office vibe: old + new Hindi & English work / hustle tracks.
     // Add more by pasting the 11-character YouTube video ID.
     // =========================================================
-// HINDI CORPORATE OFFICE PLAYLIST — 100 SONGS
-// Motivation • Hustle • Success • Teamwork • Positive Energy
-// =========================================================
+    // HINDI CORPORATE OFFICE PLAYLIST — 100 SONGS
+    // Motivation • Hustle • Success • Teamwork • Positive Energy
+    // =========================================================
 
     const TRACKS = [
       { id: "9iIX4PBplAY", title: "Kar Har Maidaan Fateh", artist: "Sanju — Sukhwinder Singh, Shreya Ghoshal" },
@@ -1429,7 +1463,7 @@
     function updateTrackInfo() {
       const currentTrack = PLAYLIST[currentTrackIndex];
       const videoId = currentTrack ? currentTrack.id : "";
-      
+
       let title = currentTrack?.title;
       let artist = currentTrack?.artist;
 
@@ -1561,7 +1595,103 @@
 
     if (copyUrlBtn) copyUrlBtn.addEventListener("click", () => copyToClipboard(shareUrlInput, copyUrlBtn, "Copy Link"));
     if (copyYtBtn) copyYtBtn.addEventListener("click", () => copyToClipboard(ytDescInput, copyYtBtn, "Copy Text"));
+    // Legal Modal Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const legalModal = document.getElementById("legal-modal");
+      const openLegalBtn = document.getElementById("open-legal-modal");
+      const openLegalBtnTop = document.getElementById("open-legal-btn");
+      const closeLegalBtn = document.getElementById("close-legal");
+      const legalBackdrop = document.getElementById("legal-backdrop");
+
+      const showLegal = (e) => {
+        e.preventDefault();
+        if (legalModal) legalModal.classList.remove("hidden");
+      };
+
+      if (openLegalBtn) openLegalBtn.addEventListener("click", showLegal);
+      if (openLegalBtnTop) openLegalBtnTop.addEventListener("click", showLegal);
+      const hideLegal = () => { if (legalModal) legalModal.classList.add("hidden"); };
+      if (closeLegalBtn) closeLegalBtn.addEventListener("click", hideLegal);
+      if (legalBackdrop) legalBackdrop.addEventListener("click", hideLegal);
+    });
+
+    // Draggable Player Card Logic
+    const playerCard = document.getElementById("player-card");
+    let isDragging = false;
+    let dragOffsetX = 0, dragOffsetY = 0;
+
+    const startDrag = (e) => {
+      if (e.target.closest('button') || e.target.closest('.progress-bar')) return;
+      isDragging = true;
+      const rect = playerCard.getBoundingClientRect();
+      playerCard.style.bottom = 'auto';
+      playerCard.style.transform = 'none';
+      playerCard.style.left = rect.left + 'px';
+      playerCard.style.top = rect.top + 'px';
+
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      dragOffsetX = clientX - rect.left;
+      dragOffsetY = clientY - rect.top;
+      playerCard.style.cursor = 'grabbing';
+    };
+
+    const drag = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      playerCard.style.left = (clientX - dragOffsetX) + 'px';
+      playerCard.style.top = (clientY - dragOffsetY) + 'px';
+    };
+
+    const stopDrag = () => {
+      isDragging = false;
+      playerCard.style.cursor = 'grab';
+    };
+
+    if (playerCard) {
+      playerCard.style.cursor = 'grab';
+      playerCard.addEventListener('mousedown', startDrag);
+      playerCard.addEventListener('touchstart', startDrag, { passive: false });
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('touchmove', drag, { passive: false });
+      document.addEventListener('mouseup', stopDrag);
+      document.addEventListener('touchend', stopDrag);
+    }
   </script>
+
+  <!-- Legal Modal -->
+  <div id="legal-modal" class="share-modal hidden">
+    <div class="share-modal-backdrop" id="legal-backdrop"></div>
+    <div class="share-modal-content" style="max-width: 400px; padding: 30px; text-align: center;">
+      <button class="close-share-btn" id="close-legal">&times;</button>
+      <h2 style="margin-bottom: 20px; font-size: 22px;">Legal & Policies</h2>
+      <nav style="display: flex; flex-direction: column; gap: 15px; font-size: 16px;">
+        <a href="about.html" style="color: #00f2fe; text-decoration: none;">About Us</a>
+        <a href="contact.html" style="color: #00f2fe; text-decoration: none;">Contact</a>
+        <a href="privacy-policy.html" style="color: #00f2fe; text-decoration: none;">Privacy Policy</a>
+        <a href="terms-and-conditions.html" style="color: #00f2fe; text-decoration: none;">Terms & Conditions</a>
+        <a href="disclaimer.html" style="color: #00f2fe; text-decoration: none;">Disclaimer</a>
+        <a href="cookie-policy.html" style="color: #00f2fe; text-decoration: none;">Cookie Policy</a>
+        <a href="copyright-policy.html" style="color: #00f2fe; text-decoration: none;">Copyright / DMCA</a>
+        <a href="music-content-policy.html" style="color: #00f2fe; text-decoration: none;">Music Content Policy</a>
+        <a href="youtube-embed-policy.html" style="color: #00f2fe; text-decoration: none;">YouTube Embed Policy</a>
+        <a href="advertising-disclosure.html" style="color: #00f2fe; text-decoration: none;">Advertising Disclosure</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner"
+    style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(15, 28, 38, 0.95); backdrop-filter: blur(8px); border-top: 1px solid rgba(0, 242, 254, 0.3); padding: 12px 20px; z-index: 99999; text-align: center; color: #e0e0e0; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 -4px 15px rgba(0,0,0,0.5);">
+    <p style="margin: 0; max-width: 800px; line-height: 1.4;">We use cookies to personalize content and ads, to provide
+      social media features and to analyze our traffic. By using our site, you consent to our <a
+        href="cookie-policy.html" style="color: #00f2fe; text-decoration: underline;">Cookie Policy</a>.</p>
+    <button onclick="document.getElementById('cookie-banner').style.display='none'"
+      style="background: linear-gradient(135deg, #00f2fe, #4facfe); color: #000; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; transition: opacity 0.2s;">Accept
+      & Close</button>
+  </div>
 </body>
 
 </html>
